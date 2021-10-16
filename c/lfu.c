@@ -7,7 +7,7 @@ struct frame
 }frames[100];
 void main()
 {
-  int i,j,pg,fr,cnt,pf,min,page[100],id=0;
+  int i,j,pg,fr,cnt,pf,min,page[100];
   printf("ENTER THE NUMBER OF PAGES : ");
   scanf("%d",&pg);
   printf("ENTER THE REFERENCING STRING : ");
@@ -39,12 +39,11 @@ void main()
     if(j == fr)
     {
       printf("MISS\t\t");
-      if(id< fr)
+      if(i < fr)
       {
-        frames[id].content = page[i];
-        frames[id].freq++;
-        frames[id].cnt = cnt++;
-        id++;
+        frames[i].content = page[i];
+        frames[j].freq++;
+        frames[j].cnt = cnt++;
       }
       else
       {
@@ -74,3 +73,34 @@ void main()
   }
   printf("\nTOTAL PAGE FAULT : %d\n",pf);
 }
+
+
+/*
+
+OUTPUT
+
+ENTER THE NUMBER OF PAGES : 15
+ENTER THE REFERENCING STRING : 7 0 1 2 0 3 0 4 2 3 0 3 2 1 2
+ENTER THE NUMBER OF FRAMES : 3
+
+REFERENCING PAGE	STATUS		FRAME CONTENT
+
+	    7		         MISS		     7
+	    0		         MISS		     7	0
+	    1	           MISS		     7	0  	1
+	    2		         MISS		     2	0 	1
+	    0		         HIT		     2	0  	1
+	    3		         MISS		     2	0	  3
+	    0		         HIT		     2	0	  3
+	    4		         MISS		     4	0 	3
+	    2		         MISS		     4	0 	2
+	    3		         MISS		     3	0 	2
+	    0		         HIT	       3	0	  2
+	    3		         HIT		     3	0  	2
+	    2		         HIT		     3	0  	2
+	    1	         	 MISS		     3	0  	1
+	    2		         MISS		     3	0 	2
+
+TOTAL PAGE FAULT : 10
+
+*/
