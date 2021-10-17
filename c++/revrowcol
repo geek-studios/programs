@@ -1,0 +1,74 @@
+#include<iostream.h>
+#include<conio.h>
+void revrow(int a[10][10],int row,int col)
+	{   int i,j,k,temp;
+	    for(i=0;i<row;i++)
+	       for(j=0,k=row-1;j<k;j++,k--)
+		  {  temp=a[i][j];
+		     a[i][j]=a[i][k];
+		     a[i][k]=temp;
+		  }
+		  cout<<"\nthe reversed row matrix is\n";
+		  for(i=0;i<row;i++)
+		    { for(j=0;j<col;j++)
+		      cout<<a[i][j]<<"  ";
+		      cout<<endl;
+		    }
+	}
+ void revcol(int a[10][10],int row,int col)
+	{   int i,j,k,temp;
+	    for(i=0;i<col;i++)
+	       for(j=0,k=col-1;j<k;j++,k--)
+		  {  temp=a[j][i];
+		     a[j][i]=a[k][i];
+		     a[k][i]=temp;
+		  }
+		  cout<<"\nthe reversed column matrix is\n";
+		  for(i=0;i<row;i++)
+		    { for(j=0;j<col;j++)
+		      cout<<a[i][j]<<" ";
+		      cout<<endl;
+		    }
+	}
+  void main()
+	{ clrscr();
+	  char ch;
+	  int ar[10][10],b[10][10],m,n,c,i,j;
+	  cout<<"\nenter the size of the matrix";
+	  cin>>m>>n;
+	  cout<<"\nenter the elements";
+	  for(i=0;i<m;i++)
+	  { for(j=0;j<n;j++)
+	    cin>>ar[i][j];
+	  }
+	   cout<<"\nthe original matrix is\n";
+	  for(i=0;i<m;i++)
+	  {  for(j=0;j<n;j++)
+	     cout<<ar[i][j]<<" ";
+	     cout<<endl;
+	  }
+	  do
+	  {cout<<"\nMENU";
+	   cout<<"\n1.reverse rows";
+	   cout<<"\n2.reverse columns";
+	   cout<<"\nenter your choice";
+	   cin>>c;
+	   switch(c)
+	   {	case 1:for(i=0;i<m;i++)
+		       for(j=0;j<n;j++)
+		       b[i][j]=ar[i][j];
+		       revrow(b,m,n);
+		       break;
+		case 2:for(i=0;i<m;i++)
+		       for(j=0;j<n;j++)
+		       b[i][j]=ar[i][j];
+		       revcol(b,m,n);
+		       break;
+	       default:cout<<"\nerror";
+		       break;
+	   }
+		cout<<"\ndo u want to continue??";
+		cin>>ch;
+	}while((ch=='y')||(ch=='Y'));
+	 getch();
+}
