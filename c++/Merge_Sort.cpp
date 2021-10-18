@@ -1,6 +1,6 @@
 /*cpp program for merge sort
-//Author:neetu kumari
-date modified:18-10-2021
+Author:neetu kumari
+Date modified:18-10-2021
 */
 
 #include <iostream>
