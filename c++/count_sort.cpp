@@ -1,4 +1,4 @@
-/*cpp program for merge sort
+/*cpp program for count sort
 Author: Anil Kumar
 Date modified:21-10-2021
 */
